@@ -25,8 +25,8 @@ public:
     ~Detector() override;
 
     // No copy!
-//    Detector(const Detector& other) = delete;
-//    Detector& operator=(const Detector& other) = delete;
+    Detector(const Detector& other) = delete;
+    Detector& operator=(const Detector& other) = delete;
 
     void setEvent(Event* event);
 

@@ -28,7 +28,7 @@ public:
 
     constexpr static char field[] = "dunefd";
     // Constructor, destructors
-//    DuneFDDetector() = delete;
+    DuneFDDetector() = delete;
     DuneFDDetector(INIReader& reader);
     ~DuneFDDetector() override;
 
