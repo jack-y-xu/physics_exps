@@ -5,11 +5,9 @@
 #include "G4VUserDetectorConstruction.hh"
 #include "Detector.h"
 
-Detector::Detector(INIReader& reader) {
-    init(reader);
-}
+Detector::~Detector() {}
 
-Detector::~Detector() {
-    delete builder;
+void Detector::setEvent(Event* _event) {
+    event = _event;
 }
 

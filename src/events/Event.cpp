@@ -7,3 +7,11 @@
 G4VUserPrimaryGeneratorAction* Event::getGenerator() {return generator;}
 
 G4VModularPhysicsList* Event::getPhysics() {return physics;}
+
+void Event::setDetector(Detector* _detector) {
+    detector = _detector;
+}
+
+Event::~Event() {
+
+};

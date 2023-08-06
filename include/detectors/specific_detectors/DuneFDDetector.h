@@ -25,9 +25,11 @@
 
 class DuneFDDetector: public Detector {
 public:
+
+    constexpr static char field[] = "dunefd";
     // Constructor, destructors
-    DuneFDDetector() = delete;
-    DuneFDDetector(INIReader& reader, Event* event);
+//    DuneFDDetector() = delete;
+    DuneFDDetector(INIReader& reader);
     ~DuneFDDetector() override;
 
     G4VPhysicalVolume* Construct() override;
@@ -45,5 +47,6 @@ private:
     void placeWorld();
     void placeArgonBox();
     void placeSensitiveDetector();
+
 };
 #endif //CEVNS_SIM_DUNEFDDETECTOR_H

@@ -4,10 +4,17 @@
 
 #include "MathUtils.h"
 
-G4ThreeVector MathUtils::randomSample(const double bounds[3]) {
-    return G4ThreeVector{G4UniformRand()*bounds[0], G4UniformRand()*bounds[1], G4UniformRand()*bounds[2]};
-}
-
 G4double MathUtils::random(double lower, double upper) {
     return (upper - lower) * G4UniformRand() + lower;
+}
+
+G4ThreeVector MathUtils::randomPerpendicular(G4ThreeVector vec) {
+    G4ThreeVector base = G4ThreeVector(1.0, 0.0, 0.0);
+    G4ThreeVector ortho = vec.cross(base);
+    if (ortho.mag() < 1e-9) {
+        base = G4ThreeVector(0.0, 1.0, 0.0);
+        ortho = vec.cross(base);
+    }
+    ortho = ortho.unit();
+    return ortho;
 }

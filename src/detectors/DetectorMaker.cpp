@@ -1,0 +1,14 @@
+//
+// Created by Jack Xu on 8/4/23.
+//
+
+#include "DetectorMaker.h"
+#include "DuneFDDetector.h"
+#include <memory>
+
+std::shared_ptr<Detector> DetectorMaker::makeDetector(INIReader& ir) {
+    std::string detectorType = ir.GetString(field, key, "");
+    if (detectorType == DuneFDDetector::field) {
+        return std::make_shared<DuneFDDetector>(ir);
+    }
+}

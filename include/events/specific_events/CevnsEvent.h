@@ -9,14 +9,18 @@
 #include "INIReader.h"
 
 class CevnsEvent: public Event {
-
+public:
+    constexpr static char field[] = "cevns";
     CevnsEvent() = delete;
-    CevnsEvent(INIReader& reader);
+    explicit CevnsEvent(INIReader& reader);
     ~CevnsEvent() override;
 
-    void ProcessHits(G4Step*, G4TouchableHistory*) override;
+    G4bool ProcessHits(G4Step*, G4TouchableHistory*) override;
 
-    virtual void exportToAnalysisManager() = 0;
+    void exportToAnalysisManager() override;
+private:
+    G4int nPhotons;
 };
+
 
 #endif //CEVNS_SIM_CEVNSEVENT_H

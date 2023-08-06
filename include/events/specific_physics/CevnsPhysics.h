@@ -7,7 +7,8 @@
 #include "G4VModularPhysicsList.hh"
 
 class CevnsPhysics: G4VModularPhysicsList {
-
+public:
+    CevnsPhysics();
 };
 
 #endif //CEVNS_SIM_CEVNSPHYSICS_H

@@ -12,8 +12,8 @@
 #include <random>
 
 class MathUtils {
-    static G4ThreeVector randomSample(const double bounds[3]);
     static G4double random(double lower, double upper);
+    static G4ThreeVector randomPerpendicular(G4ThreeVector);
 };
 
 #endif //CEVNS_SIM_MATHUTILS_H
