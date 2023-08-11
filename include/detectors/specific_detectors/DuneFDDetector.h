@@ -13,6 +13,7 @@
 #include "GenericSD.h"
 #include "Detector.h"
 #include "G4Box.hh"
+#include "G4RunManager.hh"
 
 /* Builder (G4VUserDetectorConstruction) for the Dune FD Detector
  *
@@ -29,14 +30,14 @@ public:
     constexpr static char field[] = "dunefd";
     // Constructor, destructors
     DuneFDDetector() = delete;
-    DuneFDDetector(INIReader& reader);
+    DuneFDDetector(INIReader&, G4RunManager*);
     ~DuneFDDetector() override;
-
-    G4VPhysicalVolume* Construct() override;
 
     [[nodiscard]] G4ThreeVector samplePoint() const override;
 
-private:
+protected:
+    G4VPhysicalVolume* _construct() override;
+
     G4Box *worldBox, *lArBox, *sdBox;
     G4LogicalVolume *worldLog, *lArLog, *sdLog;
     G4PVPlacement *worldPhys, *lArPhys, *sdPhys;
@@ -47,6 +48,5 @@ private:
     void placeWorld();
     void placeArgonBox();
     void placeSensitiveDetector();
-
 };
 #endif //CEVNS_SIM_DUNEFDDETECTOR_H

@@ -11,8 +11,9 @@
 #include "G4Types.hh"
 #include "Generator.h"
 
-class CevnsGenerator: Generator {
+class CevnsGenerator: public Generator {
 public:
+    constexpr static char field[] = "cevns";
     CevnsGenerator() = delete;
     explicit CevnsGenerator(INIReader& reader);
     ~CevnsGenerator() override;
@@ -25,6 +26,11 @@ private:
     G4ThreeVector samplePoint();
     G4ThreeVector sampleDirection();
     G4int sampleNumber();
+    Detector* detector;
+
+    uint64_t nPhotons;
+
+    G4double sampleEnergy();
 };
 
 #endif //CEVNS_SIM_CEVNSGENERATOR_H

@@ -14,32 +14,39 @@
 #include "G4VisExecutive.hh"
 #include "G4SteppingVerbose.hh"
 #include "Randomize.hh"
+#include "SimpleUI.h"
 
 using namespace std::filesystem;
 
 class Instance final {
+public:
+    constexpr static char field[] = "main";
 
     Instance() = delete;
-    Instance(path, bool);
+    Instance(path&&, uint64_t, bool);
     ~Instance();
 
     void run();
 
     void saveResults();
 private:
-
-    void setupRandom();
-    void setupPrecision(int);
+    static void setupRandom();
+    static void setupPrecision(int);
     void initializeManagers();
     void setupDetectorAndEvent(INIReader&);
-    path filepath;
-    bool visualize;
+
     std::shared_ptr<Detector> detector;
     std::shared_ptr<Event> event;
     std::unique_ptr<G4RunManager> runManager;
     std::unique_ptr<G4VisManager> visManager;
     std::unique_ptr<G4UImanager> uiManager;
     std::unique_ptr<G4UIExecutive> uiExec;
+    std::unique_ptr<SimpleUI> ui;
+
+    path filepath;
+    uint64_t n;
+    bool visualize;
+
 };
 
 #endif //CEVNS_SIM_INSTANCE_H

@@ -9,7 +9,9 @@
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "Detector.h"
 
-class Generator: G4VUserPrimaryGeneratorAction {
+
+class Generator: public G4VUserPrimaryGeneratorAction {
+public:
     void setDetector(Detector* detector);
 private:
     Detector* detector;

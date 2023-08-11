@@ -5,8 +5,9 @@
 #ifndef CEVNS_SIM_GENERICSD_H
 #define CEVNS_SIM_GENERICSD_H
 
-#include "Event.h"
 #include "G4VSensitiveDetector.hh"
+
+class Event;
 
 class GenericSD: public G4VSensitiveDetector {
 public:

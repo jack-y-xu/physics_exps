@@ -9,8 +9,7 @@
 #include "G4Event.hh"
 #include <string>
 
-
-DuneFDDetector::DuneFDDetector(INIReader& reader){
+DuneFDDetector::DuneFDDetector(INIReader& reader, G4RunManager* runManager){
     static std::string dir[3] = {"X", "Y", "Z"};
 
     for (int i = 0; i < 3; i++) {
@@ -19,12 +18,14 @@ DuneFDDetector::DuneFDDetector(INIReader& reader){
         sdDim[i] = reader.GetReal(field, "slab" + dir[i], -1) * m;
         sdPos[i] = reader.GetReal(field, "slabPos" + dir[i], -1) * m;
     }
+
+    runManager->SetUserInitialization(this);
 }
 
 // geant4 manages the deletion of all objects we pass to it
 DuneFDDetector::~DuneFDDetector() = default;
 
-G4VPhysicalVolume* DuneFDDetector::Construct() {
+G4VPhysicalVolume* DuneFDDetector::_construct() {
     placeWorld();
     placeArgonBox();
     placeSensitiveDetector();

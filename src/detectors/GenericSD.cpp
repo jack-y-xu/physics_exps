@@ -3,6 +3,7 @@
 //
 
 #include "GenericSD.h"
+#include "Event.h"
 
 GenericSD::GenericSD(const G4String& name, Event* _event): G4VSensitiveDetector(name), event{_event} {};
 

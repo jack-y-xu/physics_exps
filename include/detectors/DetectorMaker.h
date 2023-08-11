@@ -5,6 +5,7 @@
 #ifndef CEVNS_SIM_DETECTORMAKER_H
 #define CEVNS_SIM_DETECTORMAKER_H
 
+#include <G4RunManager.hh>
 #include "Detector.h"
 
 class DetectorMaker {
@@ -12,6 +13,8 @@ class DetectorMaker {
     constexpr static char key[] = "detector";
 public:
     static std::shared_ptr<Detector> makeDetector(INIReader&);
+
+    static std::shared_ptr<Detector> makeDetector(INIReader &ir, G4RunManager *runManager);
 };
 
 #endif //CEVNS_SIM_DETECTORMAKER_H

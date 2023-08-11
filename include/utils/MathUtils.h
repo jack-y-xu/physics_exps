@@ -12,6 +12,7 @@
 #include <random>
 
 class MathUtils {
+public:
     static G4double random(double lower, double upper);
     static G4ThreeVector randomPerpendicular(G4ThreeVector);
 };

@@ -6,7 +6,7 @@
 
 #include "G4VModularPhysicsList.hh"
 
-class CevnsPhysics: G4VModularPhysicsList {
+class CevnsPhysics: public G4VModularPhysicsList {
 public:
     CevnsPhysics();
 };

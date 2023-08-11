@@ -11,6 +11,7 @@
 #include "G4Step.hh"
 #include "G4TouchableHistory.hh"
 #include "Detector.h"
+#include "Generator.h"
 
 
 class Event {
@@ -24,8 +25,8 @@ public:
 
     G4VUserPrimaryGeneratorAction* getGenerator();
     G4VModularPhysicsList* getPhysics();
-private:
-    G4VUserPrimaryGeneratorAction* generator;
+protected:
+    Generator* generator;
     G4VModularPhysicsList* physics;
     Detector* detector;
 };
