@@ -32,7 +32,6 @@ G4VPhysicalVolume* DuneFDDetector::_construct() {
     return worldPhys;
 }
 
-
 /*
  * Samples a valid point within the liquid argon space
  */
