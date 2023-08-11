@@ -6,6 +6,11 @@
 
 SimpleUI::SimpleUI(bool visual): visual{visual} {};
 
+SimpleUI::~SimpleUI() {
+    visManager.reset(nullptr);
+    uiExecutive.reset(nullptr);
+}
+
 void SimpleUI::start() {
     G4int argc = 1;
     char* argv[] = {"j_phys", nullptr};

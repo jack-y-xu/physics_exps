@@ -15,7 +15,7 @@ class SimpleUI final {
 
 public:
     SimpleUI(bool);
-    ~SimpleUI() = default;
+    ~SimpleUI();
 
     void start();
     void ApplyCommand(std::string);

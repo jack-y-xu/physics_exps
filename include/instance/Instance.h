@@ -38,9 +38,6 @@ private:
     std::shared_ptr<Detector> detector;
     std::shared_ptr<Event> event;
     std::unique_ptr<G4RunManager> runManager;
-    std::unique_ptr<G4VisManager> visManager;
-    std::unique_ptr<G4UImanager> uiManager;
-    std::unique_ptr<G4UIExecutive> uiExec;
     std::unique_ptr<SimpleUI> ui;
 
     path filepath;
