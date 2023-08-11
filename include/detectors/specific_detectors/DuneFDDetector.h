@@ -43,7 +43,6 @@ protected:
     G4PVPlacement *worldPhys, *lArPhys, *sdPhys;
 
     double worldDim[3], argonDim[3], sdDim[3], sdPos[3];
-    GenericSD* gsd;
 
     void placeWorld();
     void placeArgonBox();

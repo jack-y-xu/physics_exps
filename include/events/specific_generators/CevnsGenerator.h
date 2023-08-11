@@ -26,7 +26,6 @@ private:
     G4ThreeVector samplePoint();
     G4ThreeVector sampleDirection();
     G4int sampleNumber();
-    Detector* detector;
 
     uint64_t nPhotons;
 

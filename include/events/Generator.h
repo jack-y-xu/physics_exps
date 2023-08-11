@@ -13,7 +13,7 @@
 class Generator: public G4VUserPrimaryGeneratorAction {
 public:
     void setDetector(Detector* detector);
-private:
+protected:
     Detector* detector;
 };
 

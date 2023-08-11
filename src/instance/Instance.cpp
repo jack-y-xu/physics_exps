@@ -48,7 +48,11 @@ void Instance::setupDetectorAndEvent(INIReader& ir) {
 }
 
 Instance::~Instance() {
-
+    // Geant4 doesn't have native support for RAII, when destructors of objects get called
+    // it's going to error out. However, at this point it no longer matters. We've gotten
+    // the analysis we need.
+    std::fstream error("/dev/null");
+    std::streambuf *errbuf = std::cerr.rdbuf(error.rdbuf());
 }
 
 void Instance::run() {
